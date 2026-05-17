@@ -116,10 +116,10 @@
            ════════════════════════════════════════════════════════════ -->
       <section class="animate-fade-slide-up" style="animation-delay:160ms">
         <p class="font-mono text-[10px] tracking-[0.3em] text-slate-600 uppercase mb-3">
-          // CURRENT STATE
+          // CURRENTLY INTO
         </p>
         <p class="font-mono text-[11px] tracking-[0.25em] text-sky-400/60 uppercase mb-8">
-          此刻状态 · BODY STATUS
+          最近上头 · CURRENTLY HOOKED
         </p>
 
         <div
@@ -140,7 +140,7 @@
           <!-- Terminal body -->
           <div class="px-5 py-5 font-mono text-sm leading-8 text-slate-300">
             <p class="text-sky-400/80 mb-4">
-              <span class="text-slate-500">&gt;</span> current_state
+              <span class="text-slate-500">&gt;</span> recently_into
             </p>
 
             <div class="space-y-1 mb-5">
@@ -201,5 +201,5 @@ function gradientFor(title) { return GRADIENTS[title.length % GRADIENTS.length] 
 function sizeFor(idx) { return SIZES[idx % SIZES.length] }
 
 // ── Terminal status lines ────────────────────────────────────────────
-const statusLines = ['moving', 'recovering', 'exploring', 'becoming']
+const statusLines = ['攀岩', '游泳', '跑步', '健身', '羽毛球']
 </script>

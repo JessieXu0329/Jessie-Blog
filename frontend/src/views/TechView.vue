@@ -169,20 +169,6 @@
         </div>
       </section>
 
-      <!-- ═══════════════════════════════════════════════════════════
-           SECTION 6 — TERMINAL STATUS
-           ════════════════════════════════════════════════════════════ -->
-      <section class="animate-fade-slide-up" style="animation-delay:160ms">
-        <p class="font-mono text-[10px] tracking-[0.3em] text-slate-600 uppercase mb-3">
-          // STATUS
-        </p>
-        <p class="font-mono text-[11px] tracking-[0.25em] text-sky-400/60 uppercase mb-8">
-          当前状态 · SYSTEM STATUS
-        </p>
-
-        <TerminalBlock :sections="terminalSections" />
-      </section>
-
       <!-- Bottom breathing space -->
       <div class="h-16" />
 
@@ -192,9 +178,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import TechTag       from '../components/TechTag.vue'
-import ProjectCard   from '../components/ProjectCard.vue'
-import TerminalBlock from '../components/TerminalBlock.vue'
+import TechTag     from '../components/TechTag.vue'
+import ProjectCard from '../components/ProjectCard.vue'
 import { fetchTechProjects } from '../api/admin'
 
 // ── Tech stack data (static) ─────────────────────────────────────────
@@ -246,31 +231,4 @@ const timeline = [
   },
 ]
 
-// ── Terminal data ────────────────────────────────────────────────────
-const terminalSections = [
-  {
-    label: 'Building',
-    items: [
-      'personal blog',
-      'AI projects',
-      'better ideas',
-    ],
-  },
-  {
-    label: 'Listening to',
-    items: [
-      'indie',
-      'R&B',
-      'rock',
-    ],
-  },
-  {
-    label: 'Currently interested in',
-    items: [
-      'human-centered technology',
-      'digital aesthetics',
-      'cinema',
-    ],
-  },
-]
 </script>

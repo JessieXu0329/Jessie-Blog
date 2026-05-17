@@ -67,6 +67,7 @@
               :title="album.title"
               :subtitle="album.subtitle"
               :cover="album.coverUrl"
+              :review="album.review"
             />
           </div>
         </div>
