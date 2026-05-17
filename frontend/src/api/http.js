@@ -1,7 +1,11 @@
 import axios from 'axios'
 
+// VITE_API_BASE 在 Vercel 环境变量里设置，例如 https://你的后端.onrender.com/api
+// 本地开发用 Vite proxy，不需要设
+const baseURL = import.meta.env.VITE_API_BASE || '/api'
+
 const http = axios.create({
-  baseURL: '/api',
+  baseURL,
   timeout: 10_000,
   headers: { 'Content-Type': 'application/json' },
 })
