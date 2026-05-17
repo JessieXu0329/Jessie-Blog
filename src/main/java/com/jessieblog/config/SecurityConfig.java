@@ -39,7 +39,7 @@ public class SecurityConfig {
             // 验证通过后把 ROLE_ADMIN 写入 SecurityContext
             .addFilterBefore(adminTokenFilter, UsernamePasswordAuthenticationFilter.class)
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers(HttpMethod.GET, "/", "/health").permitAll()
+                .requestMatchers(HttpMethod.GET, "/", "/health", "/health/db").permitAll()
                 // 公开读取
                 .requestMatchers(HttpMethod.GET, "/api/posts", "/api/posts/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/admin/tech", "/api/admin/tech/**", "/api/admin/sports", "/api/admin/media").permitAll()
@@ -58,6 +58,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of(allowedOrigins.split(",")));
+        config.setAllowedOriginPatterns(List.of("https://*.vercel.app"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
