@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/api/posts)",
+      "Bash(./mvnw spring-boot:run)",
+      "Bash(mvn spring-boot:run)",
+      "Bash(curl -s http://localhost:8080/api/admin/media)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}  Size: %{size_download}  Type: %{content_type}\" \"https://cdn.jsdelivr.net/gh/JessieXu0329/picsforJessie-sBlog@main/media/2026/05/42d66ae5-c520-4b65-8969-1892ee004218.jpg\")",
+      "Bash(curl -s http://localhost:5173/api/admin/media)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "Bash(java -jar target/jessie-blog-0.0.1-SNAPSHOT.jar)",
+      "Bash(mvn package *)",
+      "Bash(netstat -ano)",
+      "Bash(findstr 8080)",
+      "Bash(tasklist)",
+      "Bash(findstr java *)",
+      "Bash(taskkill /F /PID 14432 /PID 28296)",
+      "Bash(rm -rf d:/JessieBlog/target/jessie-blog-0.0.1-SNAPSHOT.jar d:/JessieBlog/target/jessie-blog-0.0.1-SNAPSHOT.jar.original)",
+      "Bash(mvn clean *)",
+      "Bash(cmd /c \"del /f /q D:\\\\JessieBlog\\\\target\\\\jessie-blog-0.0.1-SNAPSHOT.jar\")",
+      "Bash(tasklist 2>/dev/null | grep -i java; find /c/Windows/System32 -name \"fsutil.exe\" 2>/dev/null)",
+      "Read(//c/Windows/System32/**)",
+      "Bash(cmd /c \"taskkill /F /PID 14432\")",
+      "Bash(cmd /c \"taskkill /F /PID 28296\")",
+      "Bash(cmd /c \"del /f /q D:\\\\\\\\JessieBlog\\\\\\\\target\\\\\\\\jessie-blog-0.0.1-SNAPSHOT.jar\")",
+      "Bash(powershell -Command \"Stop-Process -Name java -Force; Start-Sleep 3; Remove-Item -Path 'D:\\\\\\\\JessieBlog\\\\\\\\target\\\\\\\\jessie-blog-0.0.1-SNAPSHOT.jar' -Force -ErrorAction SilentlyContinue; Remove-Item -Path 'D:\\\\\\\\JessieBlog\\\\\\\\target\\\\\\\\jessie-blog-0.0.1-SNAPSHOT.jar.original' -Force -ErrorAction SilentlyContinue\")",
+      "Bash(powershell -Command \"Get-Process java -ErrorAction SilentlyContinue | Stop-Process -Force\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" -X DELETE -H \"X-Admin-Token: jessie-blog-secret-2026\" http://localhost:8080/api/admin/media/999)",
+      "Bash(mvn spring-boot:run -q)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" -X DELETE -H \"X-Admin-Token: jessie-blog-secret-2026\" http://localhost:8080/api/posts/1)",
+      "Bash(curl -s http://localhost:8080/api/posts)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" -X DELETE -H \"X-Admin-Token: jessie-blog-secret-2026\" http://localhost:5173/api/posts/999)",
+      "Bash(curl -s -X DELETE -H \"X-Admin-Token: jessie-blog-secret-2026\" http://localhost:5173/api/posts/2)",
+      "Bash(gh repo *)"
+    ]
+  }
+}

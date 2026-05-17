@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply bg-space-950 text-slate-100 antialiased;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* JetBrains Mono 覆盖浏览器默认 monospace，全站等宽文字统一使用 */
+  .font-mono, code, kbd, pre, samp {
+    font-family: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+  }
+
+  ::selection {
+    @apply bg-blue-600/40 text-white;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-space-950; }
+  ::-webkit-scrollbar-thumb { @apply bg-blue-700/50 rounded-full; }
+}
+
+@layer components {
+  /* Glass card */
+  .card-glass {
+    @apply rounded-xl overflow-hidden
+           bg-slate-900/50 backdrop-blur-md
+           border border-blue-900/40
+           transition-all duration-300;
+  }
+  .card-glass:hover {
+    @apply border-blue-500/50
+           shadow-[0_0_24px_rgba(59,130,246,0.2),inset_0_0_24px_rgba(59,130,246,0.04)]
+           -translate-y-0.5;
+  }
+
+  /* Glow text */
+  .text-glow {
+    text-shadow: 0 0 20px rgba(147, 197, 253, 0.5);
+  }
+
+  /* Admin submit button — shared across all admin tabs */
+  .admin-submit-btn {
+    @apply flex items-center gap-2.5 px-8 py-3 rounded-lg
+           font-mono text-sm tracking-widest uppercase
+           border border-sky-500/60 text-sky-200
+           bg-sky-600/20 hover:bg-sky-600/30
+           disabled:opacity-40 disabled:cursor-not-allowed
+           transition-all duration-200
+           shadow-[0_0_14px_rgba(56,189,248,0.2)]
+           hover:shadow-[0_0_22px_rgba(56,189,248,0.45)];
+  }
+
+  /* Admin form field label */
+  .field-label {
+    @apply block text-[10px] font-mono tracking-[0.25em] text-slate-500 uppercase;
+  }
+
+  /* Admin sci-fi input */
+  .sci-input {
+    @apply w-full rounded-lg px-4 py-2.5
+           bg-slate-950/70 border border-blue-900/50 text-slate-200 text-sm
+           placeholder-slate-600
+           focus:outline-none focus:border-blue-500/60 focus:ring-1 focus:ring-blue-500/25
+           transition-colors duration-200;
+  }
+}
+
+/* Markdown sci-fi prose overrides */
+.prose-scifi {
+  @apply prose prose-invert max-w-none
+         prose-headings:text-blue-300 prose-headings:font-semibold prose-headings:tracking-wide
+         prose-p:text-slate-300 prose-p:leading-7
+         prose-a:text-cyan-400 prose-a:no-underline hover:prose-a:underline
+         prose-strong:text-blue-200
+         prose-blockquote:border-l-blue-500 prose-blockquote:text-slate-400 prose-blockquote:bg-blue-950/30 prose-blockquote:py-1
+         prose-code:text-cyan-300 prose-code:bg-blue-950/60 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
+         prose-pre:bg-slate-900/90 prose-pre:border prose-pre:border-blue-900/50 prose-pre:rounded-lg
+         prose-img:rounded-lg prose-img:border prose-img:border-blue-900/40
+         prose-hr:border-blue-900/50
+         prose-li:text-slate-300;
+}
