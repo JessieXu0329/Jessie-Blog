@@ -4,8 +4,10 @@ server:
 
 spring:
   datasource:
-    # 本地用 localhost，Railway 用 DATABASE_URL 环境变量
-    url: jdbc:${DATABASE_URL:mysql://root:123456@localhost:3306/jessie_blog}?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8
+    # 本地 localhost，Railway 用 MYSQLHOST/MYSQLPORT 等
+    url: jdbc:mysql://${MYSQLHOST:localhost}:${MYSQLPORT:3306}/${MYSQLDATABASE:jessie_blog}?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8
+    username: ${MYSQLUSER:root}
+    password: ${MYSQLPASSWORD:123456}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
