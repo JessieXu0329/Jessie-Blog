@@ -2,6 +2,7 @@ package com.jessieblog.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -20,9 +21,12 @@ import java.util.List;
 public class SecurityConfig {
 
     private final AdminTokenFilter adminTokenFilter;
+    private final String allowedOrigins;
 
-    public SecurityConfig(AdminTokenFilter adminTokenFilter) {
+    public SecurityConfig(AdminTokenFilter adminTokenFilter,
+                          @Value("${app.cors.allowed-origins:http://localhost:3000,http://localhost:5173}") String allowedOrigins) {
         this.adminTokenFilter = adminTokenFilter;
+        this.allowedOrigins = allowedOrigins;
     }
 
     @Bean
@@ -52,7 +56,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:5173"));
+        config.setAllowedOrigins(List.of(allowedOrigins.split(",")));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
